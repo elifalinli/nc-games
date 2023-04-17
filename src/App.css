@@ -2,10 +2,39 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.review-grid {
+  display: grid;
+  grid-template-columns: 12px 12px 12px;
+  grid-template-rows: 12px 12px 12px;
+  grid-gap: 6px;
+  justify-items: stretch;
+  justify-content: space-around;
+  align-content: center;
+  grid-auto-flow: row;
+  
 }
+
+.review-list {
+  display: grid; 
+  grid-gap: 20px;
+  /* flex-wrap: wrap; 
+  list-style-type: none;
+  padding: 0;
+  margin: 0; */
+ 
+}
+
+.review-item {
+  flex-basis: 100%; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  grid-template-columns: 12px 12px 12px;
+  grid-template-rows: 12px 12px 12px;
+}
+
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
