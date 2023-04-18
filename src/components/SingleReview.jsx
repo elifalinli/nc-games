@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchSingleReview } from "../api";
+import { fetchSingleReview } from "../utils/api";
 import { useParams } from "react-router-dom";
 
 

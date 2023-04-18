@@ -1,4 +1,4 @@
-import { fetchAllReviews } from "../api";
+import { fetchAllReviews } from "../utils/api";
 import { useEffect, useState } from "react";
 import { Categories } from "./Categories";
 import { ReviewCard } from "./ReviewCard";
