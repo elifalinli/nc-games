@@ -21,3 +21,9 @@ export const fetchSingleReview = (review_id) => {
         return data.review
     })
 }
+
+export const fetchCommentsByReviewId = (review_id) => {
+    return gamesAPI.get(`/reviews/${review_id}/comments`).then(({data}) => {
+        return data.comments
+    })
+}

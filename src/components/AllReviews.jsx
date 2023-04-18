@@ -5,13 +5,13 @@ import { ReviewCard } from "./ReviewCard";
 import { Link } from "react-router-dom";
 
 export const AllReviews = ({ reviewsList, setReviewsList, categories, setCategories }) => {
-  const [isLoading, setIsloading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsloading(true);
+    setIsLoading(true);
     fetchAllReviews().then((reviews) => {
       setReviewsList(reviews);
-      setIsloading(false);
+      setIsLoading(false);
     });
   }, []);
 
