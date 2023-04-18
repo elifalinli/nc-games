@@ -65,7 +65,16 @@
   margin: 30px;
   
 }
-
+.comments-list {
+  list-style: none;
+  text-align: justify;
+}
+.comments-list > h2 {
+  text-align: center;
+}
+.comment > p {
+  border-style: outset;
+}
 
 
 .App-header {
