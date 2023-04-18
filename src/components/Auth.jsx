@@ -24,7 +24,7 @@ export const Auth = ({user, setUser}) => {
             </>
           ) : (
             <>
-              <img src={user.avatar} style={{borderRadius: "25 px 25 px", height: "50px"}} alt={`avatar for ${user.username}`} />
+              <img src={user.avatar} style={{borderRadius: "25px", height: "50px"}} alt={`avatar for ${user.username}`} />
               <p>{user.username} is signed in.</p>
             </>
           )}

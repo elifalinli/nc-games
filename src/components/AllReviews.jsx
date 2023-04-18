@@ -1,7 +1,8 @@
-import { fetchAllReviews } from "../api";
+import { fetchAllReviews } from "../utils/api";
 import { useEffect, useState } from "react";
 import { Categories } from "./Categories";
 import { ReviewCard } from "./ReviewCard";
+import { Link } from "react-router-dom";
 
 export const AllReviews = ({ reviewsList, setReviewsList, categories, setCategories }) => {
   const [isLoading, setIsloading] = useState(true);
@@ -27,10 +28,14 @@ export const AllReviews = ({ reviewsList, setReviewsList, categories, setCategor
       <br />
       <br />
       <ul className="review-grid">
-        {reviewsList.map((review) => (
-          <ReviewCard key={review.review_id} {...review} />
-        ))}
-      </ul>
+      {reviewsList.map((review) => (
+        <li key={review.review_id}>
+          <Link to={`/reviews/${review.review_id}`}>
+            <ReviewCard {...review} />
+          </Link>
+        </li>
+      ))}
+    </ul>
     </div>
   );
 };

@@ -4,6 +4,7 @@ import './App.css';
 import { AllReviews } from './components/AllReviews';
 import { Auth } from './components/Auth';
 import { Header } from './components/Header';
+import { SingleReview } from './components/SingleReview';
 
 function App() {
   const [user, setUser] = useState({username: "", avatar: ""})
@@ -16,7 +17,8 @@ function App() {
       <Routes>
         <Route path="/" element={< AllReviews reviewsList={reviewsList} setReviewsList={setReviewsList} categories={categories} setCategories={setCategories}/>} />
         <Route path="/reviews" element={< AllReviews reviewsList={reviewsList} setReviewsList={setReviewsList} categories={categories} setCategories={setCategories}/>} />
-      </Routes>
+        <Route path="/reviews/:review_id" element={<SingleReview />} />
+          </Routes>
     </div>
   );
 }

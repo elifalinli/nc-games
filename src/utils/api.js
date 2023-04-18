@@ -15,3 +15,9 @@ export const fetchCategories = () => {
         return data.categories
     })
 }
+
+export const fetchSingleReview = (review_id) => {
+    return gamesAPI.get(`/reviews/${review_id}`).then(({data}) => {
+        return data.review
+    })
+}

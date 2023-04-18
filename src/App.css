@@ -1,6 +1,7 @@
 .App {
   display: grid;
   text-align: center;
+  font-family: 'Rubik', sans-serif;;
 }
 
 .categories-list{
@@ -14,6 +15,7 @@
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
+  list-style: none;
   align-content: center;
   justify-items: stretch;
   justify-content: space-around;
@@ -29,11 +31,38 @@
   border: 1px solid #ccc;
   background-color: #f8f8f8;
   align-content:space-between;
+  
 }
 
 .review-card > img{
   width: 350px;
   height: 275px;
+  margin: 0 auto;
+  
+}
+
+.single-review > h2{
+  text-align: justify;
+  margin: 50px;
+  border: #ccc;
+  font-size: xx-large;
+
+}
+.single-review > h3{
+  text-align: justify;
+  margin: 50px;
+  font-size: large;
+
+}
+.single-review > h4{
+  text-align: justify;
+  margin: 50px;
+  font-size: medium;
+
+}
+.single-review > p {
+  text-align: justify;
+  margin: 30px;
   
 }
 
