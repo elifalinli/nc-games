@@ -8,6 +8,7 @@ export const Categories = ({ setCategories, categories }) => {
   useEffect(() => {
     setIsLoading(true);
     fetchCategories().then((categories) => {
+      console.log(categories)
       setCategories(categories);
       setIsLoading(false);
     });
@@ -19,7 +20,7 @@ export const Categories = ({ setCategories, categories }) => {
 
   return (
     <nav>
-      <ul>
+      <ul className="categories-list">
         {categories.map((category) => {
           return (
             <li key={category.slug}>
@@ -28,6 +29,6 @@ export const Categories = ({ setCategories, categories }) => {
           );
         })}
       </ul>
-    </nav>
+    </nav> 
   );
 };

@@ -1,8 +1,9 @@
 import { fetchAllReviews } from "../api";
 import { useEffect, useState } from "react";
 import { Categories } from "./Categories";
+import { ReviewCard } from "./ReviewCard";
 
-export const AllReviews = ({ reviewsList, setReviewsList }) => {
+export const AllReviews = ({ reviewsList, setReviewsList, categories, setCategories }) => {
   const [isLoading, setIsloading] = useState(true);
 
   useEffect(() => {
@@ -16,33 +17,18 @@ export const AllReviews = ({ reviewsList, setReviewsList }) => {
   if (isLoading) {
     return <p>Is Loading ....</p>;
   }
+
   return (
-    <div className="review-grid">
+    <div >
       <br />
       <h2 className="all-reviews">Checkout the latest reviews!</h2>
-      
-    
-      <Categories/>
-      <br/><br/>
-      <br/>
-      <ul className="review-list">
-        {reviewsList.map((reviews) => (
-          <li key={reviews.review_id} className="review-item">
-            <img
-              src={reviews.review_img_url}
-              alt={"A basic represantation of the mentioned game."}
-              width={250}
-              height={250}
-            />
-            <br />
-            <p>
-              Owner: {reviews.owner}
-            </p>
-            <section className="review-meta">
-             Comments: {reviews.comment_count} <br/> Votes:{reviews.votes}
-            </section>
-            <br/>
-          </li>
+      <Categories categories={categories} setCategories={setCategories}/>
+      <br />
+      <br />
+      <br />
+      <ul className="review-grid">
+        {reviewsList.map((review) => (
+          <ReviewCard key={review.review_id} {...review} />
         ))}
       </ul>
     </div>
