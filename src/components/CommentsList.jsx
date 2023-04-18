@@ -23,15 +23,20 @@ export const CommentsList = ({ review_id }) => {
 
   return (
     <main className="comments-list">
-      <h2>Comments</h2>
-      <br />
-      <ul >
+    <h2>Comments</h2>
+    <br />
+    {comments.length > 0 ? (
+      <ul>
         {comments.map((comment) => (
           <li key={comment.comment_id}>
             <Comment {...comment} />
           </li>
         ))}
       </ul>
-    </main>
+    ) : (
+      <p>No comments found</p>
+    )}
+  </main>
+  
   );
 };
