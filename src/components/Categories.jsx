@@ -8,7 +8,6 @@ export const Categories = ({ setCategories, categories }) => {
   useEffect(() => {
     setIsLoading(true);
     fetchCategories().then((categories) => {
-      console.log(categories)
       setCategories(categories);
       setIsLoading(false);
     });

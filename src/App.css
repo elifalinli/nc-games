@@ -1,15 +1,18 @@
 .App {
   display: grid;
   text-align: center;
-  font-family: 'Rubik', sans-serif;;
+  font-family: 'Rubik', sans-serif;
+  ;
 }
 
-.categories-list{
+.categories-list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  text-decoration: none;
   list-style: none;
 }
+
 
 .review-grid {
   display: grid;
@@ -20,7 +23,7 @@
   justify-items: stretch;
   justify-content: space-around;
   grid-auto-flow: row;
-  
+
 
 }
 
@@ -30,52 +33,70 @@
   margin: 10px;
   border: 1px solid #ccc;
   background-color: #f8f8f8;
-  align-content:space-between;
-  
+  align-content: space-between;
+
 }
 
-.review-card > img{
+.review-card>img {
   width: 350px;
   height: 275px;
   margin: 0 auto;
-  
+
 }
 
-.single-review > h2{
+.single-review>h2 {
   text-align: justify;
   margin: 50px;
   border: #ccc;
   font-size: xx-large;
 
 }
-.single-review > h3{
+
+.single-review>h3 {
   text-align: justify;
   margin: 50px;
   font-size: large;
 
 }
-.single-review > h4{
+
+.single-review>h4 {
   text-align: justify;
   margin: 50px;
   font-size: medium;
 
 }
-.single-review > p {
+
+.single-review>p {
   text-align: justify;
   margin: 30px;
-  
+
 }
+
 .comments-list {
   list-style: none;
   text-align: justify;
 }
-.comments-list > h2 {
+
+.comments-list>h2 {
   text-align: center;
 }
-.comment > p {
+
+.comment>p {
   border-style: outset;
 }
 
+.footer-button {
+  font-family: 'Rubik', sans-serif;
+  margin: 35px;
+  font-size: 2.0em;
+  height: 100px;
+  width: 100px;
+
+}
+.votes-review > button {
+  height: 40px;
+  width: 40px;
+}
 
 .App-header {
   background-color: #282c34;
@@ -87,5 +108,3 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-

@@ -15,7 +15,7 @@ export const CommentsList = ({ review_id }) => {
       setComments(commentsArray);
       setIsLoading(false);
     });
-  }, []);
+  }, [id]);
 
   if (isLoading) {
     return "Loading...";

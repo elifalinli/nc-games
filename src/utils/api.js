@@ -27,3 +27,9 @@ export const fetchCommentsByReviewId = (review_id) => {
         return data.comments
     })
 }
+
+export const patchReviews = (review_id, adjustByOne) => {
+return gamesAPI.patch(`/reviews/${review_id}`, {inc_votes: adjustByOne}).then(({data}) => {
+    return data.review
+})
+}

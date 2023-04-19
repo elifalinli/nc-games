@@ -1,3 +1,4 @@
+
 export const ReviewCard = ({
     review_id,
     review_img_url,
@@ -5,15 +6,16 @@ export const ReviewCard = ({
     comment_count,
     votes,
   }) => {
+
     return (
-      <li className="review-card" key={review_id}>
+      <main className="review-card" >
         <img src={review_img_url} alt={"A basic representation of the mentioned game."}  />
         <p>Owner: {owner}</p>
-        <section className="review-meta">
+        <p className="review-meta">
           Comments: {comment_count} <br /> Votes: {votes}
-        </section>
+        </p>
         <br />
-      </li>
+      </main>
     );
   };
   
