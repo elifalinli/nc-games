@@ -1,27 +1,36 @@
+
 .App {
   display: grid;
+  width: 100%;
   text-align: center;
-  font-family: 'Rubik', sans-serif;;
+  font-family: 'Rubik', sans-serif;
 }
 
-.categories-list{
+.categories-list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  text-decoration: none;
   list-style: none;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.categories-list li {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  white-space: nowrap;
 }
 
 .review-grid {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   list-style: none;
   align-content: center;
   justify-items: stretch;
   justify-content: space-around;
   grid-auto-flow: row;
-  
-
 }
 
 .review-card {
@@ -30,52 +39,64 @@
   margin: 10px;
   border: 1px solid #ccc;
   background-color: #f8f8f8;
-  align-content:space-between;
-  
+  align-content: space-between;
 }
 
-.review-card > img{
-  width: 350px;
-  height: 275px;
+.review-card > img {
+  max-width: 100%;
+  height: auto;
   margin: 0 auto;
-  
 }
 
-.single-review > h2{
+.single-review > h2 {
   text-align: justify;
-  margin: 50px;
-  border: #ccc;
-  font-size: xx-large;
-
+  margin: 20px;
+  font-size: 1.5rem;
 }
-.single-review > h3{
+
+.single-review > h3 {
   text-align: justify;
-  margin: 50px;
-  font-size: large;
-
+  margin: 20px;
+  font-size: 1.2rem;
 }
-.single-review > h4{
+
+.single-review > h4 {
   text-align: justify;
-  margin: 50px;
-  font-size: medium;
-
+  margin: 20px;
+  font-size: 1rem;
 }
+
 .single-review > p {
   text-align: justify;
-  margin: 30px;
-  
+  margin: 15px;
+  font-size: 1rem;
 }
+
 .comments-list {
   list-style: none;
   text-align: justify;
 }
+
 .comments-list > h2 {
   text-align: center;
 }
+
 .comment > p {
   border-style: outset;
 }
 
+.footer-button {
+  font-family: 'Rubik', sans-serif;
+  margin: 20px;
+  font-size: 2rem;
+  height: 80px;
+  width: 80px;
+}
+
+.votes-review > button {
+  height: 40px;
+  width: 40px;
+}
 
 .App-header {
   background-color: #282c34;
@@ -88,4 +109,14 @@
   color: white;
 }
 
+@media screen and (max-width: 768px) {
+  .review-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
+@media screen and (max-width: 480px) {
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+}
