@@ -14,6 +14,10 @@ export const AddComment = ({ setComments, comments }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!commentAuthor || !commentBody){
+        setErr("Please fill in both the username and body fields.");
+        return;
+    }
     const newComment = {
       body: commentBody,
       username: commentAuthor,
