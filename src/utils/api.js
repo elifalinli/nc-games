@@ -33,3 +33,9 @@ return gamesAPI.patch(`/reviews/${review_id}`, {inc_votes: adjustByOne}).then(({
     return data.review
 })
 }
+
+export const postComment = (review_id, comment) => {
+    return gamesAPI.post(`/reviews/${review_id}/comments`, comment).then(({data}) => {  
+        return data.comment
+    })
+}

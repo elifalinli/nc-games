@@ -2,8 +2,9 @@ import { fetchCommentsByReviewId } from "../utils/api.js";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Comment } from "./Comment.jsx";
+import { AddComment } from "./AddComment.jsx";
 
-export const CommentsList = ({ review_id }) => {
+export const CommentsList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [comments, setComments] = useState([]);
   const params = useParams();
@@ -24,6 +25,7 @@ export const CommentsList = ({ review_id }) => {
   return (
     <main className="comments-list">
     <h2>Comments</h2>
+    <AddComment {...comments} comments={comments} setComments={setComments}/>
     <br />
     {comments.length > 0 ? (
       <ul>
