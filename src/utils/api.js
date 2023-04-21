@@ -33,3 +33,9 @@ return gamesAPI.patch(`/reviews/${review_id}`, {inc_votes: adjustByOne}).then(({
     return data.review
 })
 }
+
+export const fetchReviewsByCategory = (category_name) => {
+    return gamesAPI.get(`/reviews/${category_name}`).then(({data}) => {
+        return data.reviews
+    })
+}
