@@ -1,68 +1,71 @@
+
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import {postComment } from "../utils/api";
-
+import { postComment } from "../utils/api";
 
 export const AddComment = ({ setComments, comments }) => {
-  const [comment, setComment] = useState([]);
   const [commentBody, setCommentBody] = useState("");
   const [commentAuthor, setCommentAuthor] = useState("");
-  const [err, setErr] = useState("")
+  const [err, setErr] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const { review_id } = useParams();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (!commentAuthor || !commentBody){
-        setErr("Please fill in both the username and body fields.");
-        return;
+    if (!commentAuthor || !commentBody) {
+      setErr("Please fill in both the username and body fields.");
+      return;
     }
     const newComment = {
       body: commentBody,
       username: commentAuthor,
     };
 
-    postComment(review_id, newComment).then((addedComment) => {
-        setIsLoading(true)
-      setComments([addedComment, ...comments]);
-      setIsLoading(false);
-      setCommentBody("")
-      setCommentAuthor("")
-      alert("Your comment is posted with success!")
-    })
-    .catch((err) => {
-        setErr("Something's wrong... Try again")
-    })
+    setIsLoading(true);
+    postComment(review_id, newComment)
+      .then((addedComment) => {
+        setComments([addedComment, ...comments]);
+        setIsLoading(false);
+        alert("Your comment has been posted successfully!");
+        setCommentAuthor("");
+        setCommentBody("");
+      })
+      .catch((err) => {
+        setErr("Something went wrong... Please try again.");
+        setIsLoading(false);
+      });
   };
-  if (isLoading) {
-    return "One second, hold that thought...";
-  }
+
   return (
     <form onSubmit={handleSubmit}>
       <h3>Share your thoughts!</h3>
+      {err && <p className="error">{err}</p>}
       <section>
         <label htmlFor="comment-author">Username: </label>
-        <br/>
+        <br />
         <input
           id="comment-author"
           type="text"
-          value={comment.author}
+          value={commentAuthor}
           onChange={(e) => setCommentAuthor(e.target.value)}
         />
       </section>
 
       <section>
         <label htmlFor="comment-body">Your thoughts?</label>
-        <br/>
-        <textarea rows="5" cols="33"
+        <br />
+        <textarea
+          rows="5"
+          cols="33"
           id="comment-body"
           type="text"
-          value={comment.body}
+          value={commentBody}
           onChange={(e) => setCommentBody(e.target.value)}
         />
       </section>
-      <button type="submit">Send it!</button>
+      <button type="submit" disabled={isLoading}>   {isLoading ? "Hold that thought..." : "Send it!"}</button>
+   
     </form>
   );
 };
