@@ -37,5 +37,14 @@ return gamesAPI.patch(`/reviews/${review_id}`, {inc_votes: adjustByOne}).then(({
 export const postComment = (review_id, comment) => {
     return gamesAPI.post(`/reviews/${review_id}/comments`, comment).then(({data}) => {  
         return data.comment
+
     })
 }
+
+// export const fetchReviewsByCategory = (category) => {
+//     return gamesAPI.get(`/reviews/?category=${category}`).then(({data}) => {
+//         console.log(data.reviews)
+//         return data.reviews
+//     })
+// }
+
