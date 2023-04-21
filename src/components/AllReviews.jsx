@@ -20,7 +20,7 @@ export const AllReviews = ({ reviewsList, setReviewsList, categories, setCategor
   }
 
   return (
-    <div >
+    <main >
       <br />
       <h2 className="all-reviews">Checkout the latest reviews!</h2>
       <Categories categories={categories} setCategories={setCategories}/>
@@ -36,6 +36,6 @@ export const AllReviews = ({ reviewsList, setReviewsList, categories, setCategor
         </li>
       ))}
     </ul>
-    </div>
+    </main>
   );
 };
