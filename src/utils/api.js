@@ -41,9 +41,10 @@ export const postComment = (review_id, comment) => {
     })
 }
 
-export const fetchReviewsByCategory = (category_name) => {
-    return gamesAPI.get(`/reviews/${category_name}`).then(({data}) => {
-        return data.reviews
-    })
-}
+// export const fetchReviewsByCategory = (category) => {
+//     return gamesAPI.get(`/reviews/?category=${category}`).then(({data}) => {
+//         console.log(data.reviews)
+//         return data.reviews
+//     })
+// }
 

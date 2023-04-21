@@ -1,34 +1,22 @@
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom"
+
 import { ReviewCard } from "./ReviewCard";
-import { fetchReviewsByCategory } from "../utils/api";
+import { Link, useParams } from "react-router-dom";
 
-export const ReviewsByCategory = ({reviewsList, setReviewsList}) => {
-    const [isLoading, setIsLoading] = useState(true);
-    const {category_name} = useParams();
+export const ReviewsByCategory = ({ reviewsList }) => {
+  const { category } = useParams()
 
-    useEffect(() => {
-        setIsLoading(true);
-        fetchReviewsByCategory(category_name).then((categoryReviews) => {
-            setReviewsList(categoryReviews)
-            setIsLoading(false)
+  const filteredReviews = reviewsList.filter((review) => review.category === category);
 
-        })
-    }, [category_name])
-
-    if (isLoading) {
-        return <p>Is Loading ....</p>;
-      }
-
-      return(
-        <ul className="review-grid">
-      {reviewsList.map((review) => (
-        <li key={review.review_id}>
-          <Link to={`/reviews/${review.review_id}`}>
-            <ReviewCard {...review} />
-          </Link>
-        </li>
-      ))}
-    </ul>
-      )
-}
+  return (
+    <main>
+      <h1> Check out the reviews in {category}</h1>
+      {filteredReviews.length === 0 ? (
+        <p>No reviews found in this category.</p>
+      ) : (
+        filteredReviews.map((review) => <Link to={`/reviews/${review.review_id}`}>
+        <ReviewCard {...review} key={review.review_id} review={review} />
+      </Link>)
+      )}
+    </main>
+  );
+};
