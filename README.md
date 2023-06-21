@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+This is a front-end project that I worked on when I was in Northcoders bootcamp. The project's back-end is in another repository of mine, you can check it out!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
